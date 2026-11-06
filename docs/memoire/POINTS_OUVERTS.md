@@ -15,9 +15,6 @@ Un point ouvert bloque ou conditionne une décision. Un point clos reste listé 
 | PO-09 | 2026-11-06 | Liste des E/S ESP32 : reprise de STM32 E01–E18, S01–S09, X01–X08. Liaison série J10 utile ou non (l'USB de la carte de dev sert au moniteur série). | C | Claude propose, Julien valide |
 | PO-10 | 2026-11-06 | Dimensions de la carte (STM32 : 120 × 80 mm) avec la carte de dev enfichée. | C | Julien |
 | PO-11 | 2026-11-06 | **Date limite de commande JLCPCB** pour une réception fin novembre. Estimation : 5 à 7 jours de fabrication 4 couches + assemblage, 3 à 5 jours de transport express. Commande au plus tard le **14 novembre** environ. **[Hypothèse]** Délais à confirmer sur le devis JLCPCB. | C | Julien |
-| PO-15 | 2026-11-06 | Entrée de mode maintenance `MAINT_IN` (STM32 X03) : mode banc, mouvements commandés sans PWM. **[Reco]** Supprimer : elle crée un chemin qui contourne la barrière logicielle « PWM valide » ; les essais se font avec un générateur PWM (testeur de servo). | M | Julien |
-| PO-17 | 2026-11-06 | Appliquer DEC-021 (2 extensions) et PO-15 pour qu'**aucune broche sensible ne soit utilisée** : `RGB_DATA` GPIO46 → GPIO6. | C | Julien |
-| PO-16 | 2026-11-06 | LED RGB WS2812B (datasheet Worldsemi) : VDD 4,5–5,5 V, **VIH min 0,7 × VDD = 3,15 à 3,85 V** ; sortie ESP32 3,3 V : niveau haut non garanti. Une résistance série amortit les rebonds mais ne corrige pas le seuil. **[Reco]** Résistance série + adaptateur 74AHCT1G125 alimenté en 5 V (entrée TTL). Température de fonctionnement −20 / +70 °C : compatible avec −10 / +50 °C (sous réserve de STM32 PO-17). Codes LCSC à vérifier. | C | Claude propose, Julien valide |
 | PO-12 | 2026-11-06 | Contenu de l'autocontrôle au démarrage (DEC-011) : tensions, relecture relais au repos, cohérence NO / NC des fins de course, présence 12 V, cavalier, PWM. | M | Claude propose, Julien valide |
 
 ## Ouverts communs aux deux cartes (suivis dans le dépôt STM32)
@@ -42,6 +39,9 @@ Ces points ont la même réponse pour les deux cartes. Ils sont suivis dans le d
 | PO-06 | 2026-11-06 | Niveau du PWM | Doublon de STM32 PO-04, suivi là-bas. Non bloquant |
 | PO-01 | 2026-11-06 | Modèle de carte de dev | ESP32-S3-DevKitC-1-N8 (DEC-015) |
 | PO-08 | 2026-11-06 | Mesure isolée du courant | Supprimée (DEC-016) |
+| PO-15 | 2026-11-06 | Entrée maintenance | Supprimée (DEC-022) |
+| PO-16 | 2026-11-06 | LED RGB : niveau logique, température | Adaptateur 74AHCT1G125 (DEC-024). Codes LCSC C7484 et C114586 à confirmer au devis |
+| PO-17 | 2026-11-06 | Aucune broche sensible | Brochage v3 (DEC-023) |
 | PO-14 | 2026-11-06 | Broches sensibles sans marge | LED RGB (DEC-019) ; seules des fonctions sans lien avec la sécurité restent sur des broches sensibles (DEC-020) |
 | PO-13 | 2026-11-06 | Validation du brochage v1 | Validé, X04 et J10 supprimés (DEC-017) |
 | PO-04 | 2026-11-06 | États des broches au reset et au démarrage | Vérifiés sur la datasheet ESP32-S3 v2.2 (tab. 2-1, 2-2, 3-1). Règles R1 à R7 de `BROCHAGE_ESP32.md` |
