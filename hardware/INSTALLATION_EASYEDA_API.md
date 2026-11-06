@@ -1,8 +1,8 @@
 # Installation — pilotage d'EasyEDA Pro par Claude Code (Windows)
 
-**Statut :** reprise du dépôt STM32 (v1.1), adaptée à la carte ESP32. Seuls changent le projet EasyEDA et le dossier du dépôt.
+**Statut :** reprise du dépôt STM32 (v1.1), adaptée à la carte ESP32. **Poste : PC personnel de Julien** (DEC-028) : l'installation complète (§2) est à refaire sur ce poste.
 **Objet :** procédure unique d'installation, puis routine de début et de fin de session.
-**Poste :** PC de Julien, Windows, EasyEDA Pro V3.2.209, Claude Code installé.
+**Poste :** PC personnel de Julien, Windows. Prérequis : EasyEDA Pro **V3.2.209** (version validée sur la carte STM32), mode Full Online, Claude Code installé.
 
 ---
 
@@ -20,7 +20,7 @@ EasyEDA signale qu'un projet modifié en V3 ne s'ouvre plus dans son dernier ét
 | 4 | Télécharger l'extension Run API Gateway (`.eext`) : https://jlc-ext.com/item/oshwhub/run-api-gateway | Version 1.0.6 ou plus |
 | 5 | Dans EasyEDA Pro : ouvrir le gestionnaire d'extensions, importer le fichier `.eext`. | Extension listée |
 | 6 | Dans le gestionnaire d'extensions, pour Run API Gateway, cocher **Allow interactive with external** et **Show at header menu** (libellés V3.2.209 ; la doc de l'extension cite « Allow External Interaction » et « Show in Top Menu »). | Menu **API Gateway** visible dans la barre du haut |
-| 7 | Dans EasyEDA Pro, espace de travail Personal : **ne pas créer de projet vide** : dupliquer le projet `PCB_PWM_SECURISE_V3` sous le nom `PCB_PWM_ESP32_V3` (voir `CONSIGNES_EASYEDA_CLAUDE_CODE.md` §3, étape E0). Laisser le nouveau projet ouvert. | Projet ouvert dans l'éditeur |
+| 7 | Dans EasyEDA Pro, espace de travail Personal : **New Project** `PCB_PWM_ESP32_V3`, avec un schéma et un PCB vides (DEC-028). Laisser le projet ouvert. | Projet ouvert dans l'éditeur |
 
 Sans l'option « Allow interactive with external », la connexion échoue **sans message d'erreur**.
 
@@ -30,7 +30,7 @@ Sans l'option « Allow interactive with external », la connexion échoue **sans
 
 | Étape | Action | Contrôle |
 |---|---|---|
-| 1 | Ouvrir EasyEDA Pro et le projet `PCB_PWM_ESP32_V3`. **Fermer le projet STM32.** | — |
+| 1 | Ouvrir EasyEDA Pro et le projet `PCB_PWM_ESP32_V3`. Aucun autre projet ouvert. | — |
 | 2 | Ouvrir une fenêtre PowerShell **dédiée** au pont et la laisser ouverte :<br>`node "$env:USERPROFILE\.claude\skills\easyeda-api\scripts\bridge-server.mjs"` | Le port choisi (49620 à 49629) s'affiche |
 | 3 | Dans EasyEDA : **API Gateway > Reconnect**. | — |
 | 4 | Dans une autre fenêtre PowerShell :<br>`curl.exe http://localhost:49620/health` (remplacer 49620 par le port affiché) | `"service":"easyeda-bridge"` et `"edaConnected":true` |

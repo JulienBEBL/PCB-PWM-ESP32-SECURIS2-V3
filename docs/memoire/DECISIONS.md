@@ -21,6 +21,9 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 | DEC-005 | 2026-11-06 | **Clarté et simplicité pour Julien** : documents courts, une étape à la fois, explications explicites. | Validée | Julien : « il faut que ce soit clair et simple pour moi » |
 | DEC-008 | 2026-11-06 | Usage du POC : **chez le client, en extérieur**. Les exigences d'environnement (STM32 DEC-004, DEC-040) s'appliquent. | Validée | Julien |
 | DEC-025 | 2026-11-06 | **Schéma et PCB saisis par Claude Code**, qui pilote EasyEDA Pro par l'API (comme la carte STM32). Julien contrôle et valide à chaque jalon. **Schéma, placement et routage très simples et clairs.** Remplace la partie « conçue manuellement par Julien » de DEC-001. | Validée | Julien. Consignes : `hardware/CONSIGNES_EASYEDA_CLAUDE_CODE.md` §0 |
+| DEC-027 | 2026-11-06 | **Jalons G1 (BOM cible) et G2 (netlist cible) validés.** Claude travaille en autonomie jusqu'au prochain jalon. | Validée | Julien : « je valide tout, travaille en autonomie » |
+| DEC-028 | 2026-11-06 | Schéma et PCB dans un **nouveau projet EasyEDA vierge** `PCB_PWM_ESP32_V3`, sur le **PC personnel** de Julien. Pas de copie du projet STM32. | Validée | Julien. Remplace l'étape E0 « copie » proposée |
+| DEC-029 | 2026-11-06 | Carte de dev ESP32-S3-DevKitC-1-N8 commandée par Julien en parallèle. | Validée | Julien. Réception : PO-18, PO-21 |
 | DEC-013 | 2026-11-06 | Dépôt séparé `JulienBEBL/PCB-PWM-ESP32-SECURIS2-V3`, alimenté par les informations du dépôt STM32 (copie figée dans `references/stm32_v3/`). | Validée | Julien |
 | DEC-014 | 2026-11-06 | **Délai** : carte reçue et testée fin novembre 2026. Conception (schéma + PCB) en 2 semaines maximum. | Validée | Julien. Date de commande au plus tard : PO-11 |
 

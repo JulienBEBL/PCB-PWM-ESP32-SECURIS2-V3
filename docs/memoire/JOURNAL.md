@@ -55,3 +55,13 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 - `hardware/CONSIGNES_EASYEDA_CLAUDE_CODE.md` : §0 propre à l'ESP32 (copie du projet STM32 comme base, règles de clarté C1 à C10, interdiction d'écrire dans le projet STM32).
 - Scripts de routage STM32 non copiés : ils contiennent l'uuid du projet STM32 en dur.
 - PO-07, PO-19, PO-20 clos. Nouveaux : PO-21 (écart des rangées), PO-22 (délai de la saisie par l'API).
+
+## Session 02 (fin) — 2026-11-06
+
+**Décisions de Julien.** G1 et G2 validés, travail en autonomie (DEC-027). Nouveau projet EasyEDA vierge sur le PC personnel, pas de copie du projet STM32 (DEC-028). Carte de dev commandée (DEC-029).
+
+**Travaux.**
+
+- Consignes, guide d'installation et netlist adaptés au projet vierge sur le PC personnel.
+- Firmware v0 de mise en service : mesure PWM, fins de course, relectures, autocontrôle, watchdogs, LED RGB, STATUS, journal série. Aucune commande du vérin. Radio jamais initialisée. Vérification de syntaxe seulement (pas de chaîne ESP32 dans l'environnement).
+- PO-09 clos. Nouveau : PO-23 (Julien annonce « travailler sur la partie PCB » : rôle à préciser).

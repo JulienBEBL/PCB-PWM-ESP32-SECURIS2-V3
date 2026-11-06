@@ -1,14 +1,14 @@
 # Netlist cible — carte ESP32
 
-**Phase :** 2 (`CONSIGNES_EASYEDA_CLAUDE_CODE.md`). **Jalon :** G2, validation de Julien requise avant la saisie.
+**Phase :** 2 (`CONSIGNES_EASYEDA_CLAUDE_CODE.md`). **Jalon :** G2 **validé** (DEC-027).
 **Version :** v1, 2026-11-06. Dérivée de la netlist STM32 v1.3 (`references/stm32_v3/hardware/NETLIST_CIBLE.md`). Les blocs repris sont copiés à l'identique, sauf les lignes marquées **Modifié**.
 **Composants :** `hardware/BOM_CIBLE.md`. **Brochage :** `docs/architecture/BROCHAGE_ESP32.md` v3. **Alimentation :** `docs/architecture/ALIMENTATION_ESP32.md`.
 
 ## Pages du schéma
 
-Base : copie du projet STM32 (`CONSIGNES` étape E0). Pages conservées, modifiées ou supprimées :
+Projet vierge (DEC-028) : toutes les pages sont saisies. La dernière colonne indique l'écart avec la carte STM32, pour la relecture.
 
-| Page | Nom dans EasyEDA | Contenu | Action sur la copie STM32 |
+| Page | Nom dans EasyEDA | Contenu | Écart avec la carte STM32 |
 |---|---|---|---|
 | P1 | 01_ALIM_5V_3V3 | J1, J13, U15, U16, LED5, `V5_MON` | **Modifiée** : U2 et C103 à C105 supprimés, U16 déplacée depuis la page USB |
 | P2 | 02_ESP32 | Carte de dev ESP32 (barrettes J20, J21) | **Remplacée** : STM32, quartz, boutons, SWD, J10 supprimés |

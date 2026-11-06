@@ -14,16 +14,16 @@ Claude Code saisit le schéma et le PCB par l'API. Julien contrôle et valide à
 
 | Étape | Action | Qui |
 |---|---|---|
-| **E0** | Dans EasyEDA Pro, **dupliquer** le projet STM32 `PCB_PWM_SECURISE_V3` sous le nom `PCB_PWM_ESP32_V3`. Fermer le projet STM32. Noter l'uuid du nouveau projet dans ce document (règle S1). | Julien |
-| E1 | Phase 0 (§9) sur le nouveau projet : vérifier qu'il s'agit bien de la copie, **jamais** du projet STM32 | Claude Code |
-| E2 | Schéma : appliquer page par page les modifications de `NETLIST_CIBLE.md` (colonne « Action sur la copie STM32 »). Les pages inchangées ne sont pas touchées | Claude Code, jalon G3 |
-| E3 | PCB : repartir du placement STM32 pour la zone puissance ; replacer la zone commande autour de la carte de dev | Claude Code, jalon G4 |
+| **E0** | Sur le **PC personnel** de Julien : installation (`INSTALLATION_EASYEDA_API.md`), puis **nouveau projet vide** `PCB_PWM_ESP32_V3` (un schéma, un PCB). Noter son uuid ici (règle S1). Pas de copie du projet STM32 (DEC-028) | Julien |
+| E1 | Phase 0 (§9) sur le nouveau projet | Claude Code |
+| E2 | Schéma : saisie complète, page par page, depuis `NETLIST_CIBLE.md` (ordre : P1, P2, P3, P3B, P3C, P4, P4B, P5) | Claude Code, jalon G3 |
+| E3 | Placement | Claude Code, jalon G4 |
 | E4 | Routage, DRC | Claude Code, jalon G5 |
 | E5 | Exports Gerber, BOM, CPL | Claude Code, Julien commande |
 
-Gain attendu : les pages P3, P3B et la partie 12 V sont déjà saisies et vérifiées (ERC 0 erreur sur la carte STM32).
+Les jalons G1 (BOM) et G2 (netlist) sont validés (DEC-027).
 
-**Le projet STM32 ne doit jamais être modifié depuis ce dépôt.** Uuid du projet STM32, interdit en écriture : `b4788f45338c4e59bfcfdff2832a8063`.
+**Le projet STM32 ne doit jamais être modifié depuis ce dépôt.** Uuid du projet STM32, interdit en écriture : `b4788f45338c4e59bfcfdff2832a8063`. Il n'est normalement pas présent sur le PC personnel ; s'il apparaît dans l'espace de travail, ne pas l'ouvrir.
 
 ### 0.2 Règles de clarté
 
@@ -55,10 +55,11 @@ Gain attendu : les pages P3, P3B et la partie 12 V sont déjà saisies et vérif
 
 | Règle | Adaptation |
 |---|---|
-| S1 | Uuid du projet ESP32 : **à renseigner à l'étape E0**. Tout uuid égal à celui du projet STM32 : arrêt immédiat |
+| S1 | Uuid du projet `PCB_PWM_ESP32_V3` : **à renseigner à l'étape E0**. Tout uuid égal à celui du projet STM32 : arrêt immédiat |
 | S7 | Noms des nets ESP32 : `BROCHAGE_ESP32.md` v3 et `NETLIST_CIBLE.md` P2 |
 | V4 | Composants autorisés à toucher les deux domaines : K1, K2, U6, U7 seulement (U9 supprimé) |
 | V7 | Remplacé : chaque broche de J20 / J21 conforme à `NETLIST_CIBLE.md` P2 ; aucune liaison sur les broches sensibles ; rappel à la masse sur `K1_CMD`, `K2_CMD`, `RGB_DATA` ; aucun net à plus de 3,3 V vers une broche ESP32 |
+| Placement | Pas de placement STM32 à reprendre (projet vierge). Le placement STM32 (`references/stm32_v3/`, rapport non copié) peut servir d'exemple pour la zone 12 V : relire le dépôt STM32 si besoin |
 | §8 | Nommage : `AAAA-MM-JJ_PCB_PWM_ESP32_V3_G<n>.epro2` |
 | Outils | Les scripts de routage du dépôt STM32 (`hardware/outils/routage/`) contiennent l'uuid du projet STM32 en dur : **ne pas les exécuter tels quels**. Les recopier en changeant l'uuid |
 

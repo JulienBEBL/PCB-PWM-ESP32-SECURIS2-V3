@@ -1,6 +1,6 @@
 # BOM cible — carte ESP32
 
-**Phase :** 1. **Jalon :** G1, validation de Julien requise avant la saisie.
+**Phase :** 1. **Jalon :** G1 **validé** (DEC-027).
 **Version :** v1, 2026-11-06. Dérivée de la BOM STM32 v1.3 (`references/stm32_v3/hardware/BOM_CIBLE.md`), dont les codes LCSC ont été vérifiés le 2026-11-03.
 **Fichier machine :** `hardware/bom/BOM_CIBLE.csv` (une ligne par référence, repères groupés).
 **Connexions :** `hardware/NETLIST_CIBLE.md`.

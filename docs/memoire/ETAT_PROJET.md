@@ -10,11 +10,11 @@
 | 1. Carte de dev | Terminée (DEC-015) |
 | 2. Brochage | Terminé, v3 (DEC-023) |
 | 3. Alimentation | Terminée (DEC-026) |
-| 4. BOM cible et netlist cible | **v1 rédigées, jalons G1 et G2 à valider par Julien** : `hardware/BOM_CIBLE.md`, `hardware/NETLIST_CIBLE.md` |
-| 5. Schéma (Claude Code + API, contrôle Julien) | À faire, jalon G3. Prérequis : étape E0 (copie du projet STM32 par Julien) |
+| 4. BOM cible et netlist cible | **Validées** (G1, G2, DEC-027) |
+| 5. Schéma (Claude Code + API, contrôle Julien) | À faire, jalon G3. Prérequis : étape E0 sur le PC personnel (installation + projet vierge, DEC-028) |
 | 6. PCB 4 couches | À faire, jalons G4 et G5 |
 | 7. Commande JLCPCB | **Au plus tard ~14 nov** (PO-11) |
-| 8. Firmware Arduino ESP32 | À faire, en parallèle de la fabrication |
+| 8. Firmware Arduino ESP32 | **v0 de mise en service écrite** (`firmware/carte_pwm_esp32/`), sans commande du vérin. Non compilée ici |
 | 9. Essais | Fin novembre |
 
 ## Synthèse
@@ -42,14 +42,15 @@
 
 | N° | Sujet |
 |---|---|
-| G1, G2 | Validation de la BOM et de la netlist cibles par Julien |
-| E0 | Copie du projet EasyEDA STM32 par Julien, installation du pont |
+| E0 | Installation EasyEDA + API sur le PC personnel, projet vierge `PCB_PWM_ESP32_V3` |
+| PO-23 | Qui fait placement et routage |
 | PO-22 | Délai de la saisie par l'API |
 | PO-21 | Écart entre les rangées de la carte de dev (bloque le placement) |
 | STM32 PO-05 | Règles de la FSM (firmware) |
 
 ## Prochaine étape
 
-1. Julien : valider G1 et G2 ; commander la carte de dev N8 (PO-18, PO-21 se mesurent dessus).
-2. Julien : étape E0 (copie du projet `PCB_PWM_SECURISE_V3` en `PCB_PWM_ESP32_V3`), lancement du pont, puis Claude Code dans ce dépôt.
-3. Claude Code : phase 0 sur la copie, puis saisie du schéma (G3).
+1. Julien : étape E0 sur le PC personnel (`hardware/INSTALLATION_EASYEDA_API.md`), puis Claude Code dans un clone de ce dépôt.
+2. Claude Code : phase 0, puis saisie du schéma (G3).
+3. Julien, à réception de la carte de dev : test au multimètre (PO-18), mesure de l'écart des rangées (PO-21), premier téléversement du firmware v0.
+4. Julien : décrire la FSM (STM32 PO-05) pour la version v1 du firmware.
