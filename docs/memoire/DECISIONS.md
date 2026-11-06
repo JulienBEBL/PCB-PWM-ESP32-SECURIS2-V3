@@ -14,12 +14,13 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 
 | N° | Date | Décision | Statut | Source / remarque |
 |---|---|---|---|---|
-| DEC-001 | 2026-11-06 | Carte de repli de la carte STM32 V3, au cas où celle-ci n'aboutit pas ou ne fonctionne pas. Conçue **manuellement par Julien**, Claude en appui (relecture, documentation, firmware). | Validée | Julien : « faire de façon manuelle, avec toi en aide » |
+| DEC-001 | 2026-11-06 | Carte de repli de la carte STM32 V3, au cas où celle-ci n'aboutit pas ou ne fonctionne pas. Conçue **manuellement par Julien**, Claude en appui (relecture, documentation, firmware). | Remplacée en partie par DEC-025 (méthode de conception) | Julien : « faire de façon manuelle, avec toi en aide » |
 | DEC-002 | 2026-11-06 | **Même cahier des charges dans l'ensemble** que la carte STM32. Objectif : remplacer le STM32 par un ESP32 et simplifier si possible. | Validée | Julien |
 | DEC-003 | 2026-11-06 | **Aucune défaillance simple ne doit provoquer l'action** (reprise de STM32 DEC-020, sans dérogation). | Validée | Julien : « ça doit être le cas pour cette carte » |
 | DEC-004 | 2026-11-06 | Niveau retenu : **carte jumelle**. Tous les blocs de sécurité de la carte STM32 sont conservés (pont DPDT, relecture, pompe de charge, watchdog externe, cavalier, opto 12 V, protection 12 V). Seules disparaissent les fonctions fournies par la carte de dev. | Validée | Julien : « OK ». Option « carte minimale » écartée car contraire à DEC-003 |
 | DEC-005 | 2026-11-06 | **Clarté et simplicité pour Julien** : documents courts, une étape à la fois, explications explicites. | Validée | Julien : « il faut que ce soit clair et simple pour moi » |
 | DEC-008 | 2026-11-06 | Usage du POC : **chez le client, en extérieur**. Les exigences d'environnement (STM32 DEC-004, DEC-040) s'appliquent. | Validée | Julien |
+| DEC-025 | 2026-11-06 | **Schéma et PCB saisis par Claude Code**, qui pilote EasyEDA Pro par l'API (comme la carte STM32). Julien contrôle et valide à chaque jalon. **Schéma, placement et routage très simples et clairs.** Remplace la partie « conçue manuellement par Julien » de DEC-001. | Validée | Julien. Consignes : `hardware/CONSIGNES_EASYEDA_CLAUDE_CODE.md` §0 |
 | DEC-013 | 2026-11-06 | Dépôt séparé `JulienBEBL/PCB-PWM-ESP32-SECURIS2-V3`, alimenté par les informations du dépôt STM32 (copie figée dans `references/stm32_v3/`). | Validée | Julien |
 | DEC-014 | 2026-11-06 | **Délai** : carte reçue et testée fin novembre 2026. Conception (schéma + PCB) en 2 semaines maximum. | Validée | Julien. Date de commande au plus tard : PO-11 |
 
@@ -38,6 +39,7 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 |---|---|---|---|---|
 | DEC-009 | 2026-11-06 | PCB **4 couches** accepté (empilement STM32 DEC-070 repris). | Validée | Julien |
 | DEC-010 | 2026-11-06 | **Entrées d'extension capteurs et buzzer conservés.** | Validée | Julien |
+| DEC-026 | 2026-11-06 | **Alimentation** selon `ALIMENTATION_ESP32.md` : U15 sur J1, U16 vers la broche 5V de la carte de dev, +3V3 pris sur la carte de dev, U2 supprimé. | Validée | Julien : « ok pour l'alimentation, si tout est OK et compatible ». Clôt PO-07. Réserve : PO-18 |
 | DEC-016 | 2026-11-06 | **Mesure isolée du courant du vérin supprimée** (STM32 X05, U8 / U9 / U10 et composants associés). | Validée | Julien : « PO-08 supprime ». Clôt PO-08. Diagnostic seulement, sans effet sur la sécurité |
 | DEC-017 | 2026-11-06 | **Brochage v1 validé** (`docs/architecture/BROCHAGE_ESP32.md`). **X04** (identification de révision) et **J10** (série USART2) supprimés. | Validée | Julien : « OK pour 1 2 3 ». Clôt PO-13. Usage des broches sensibles : PO-14 |
 | DEC-018 | 2026-11-06 | Principe : **ne pas utiliser les broches sensibles** (modifiées au démarrage) **s'il y a de la marge**. | Validée | Julien. Pas de marge en v1 : arbitrage PO-14 |

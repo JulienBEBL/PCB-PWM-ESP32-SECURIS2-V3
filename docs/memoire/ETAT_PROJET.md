@@ -1,19 +1,21 @@
 # État du projet
 
-**Dernière mise à jour :** 2026-11-06 (session 02)
+**Dernière mise à jour :** 2026-11-06 (session 02, fin)
 
 ## Phase en cours
 
 | Phase | Statut |
 |---|---|
-| 0. Cadrage et reprise du dépôt STM32 | **Terminée** (`docs/REPRISE_STM32.md`) |
-| 1. Choix de la carte de dev ESP32 | **Terminée** : ESP32-S3-DevKitC-1-N8 (DEC-015) |
-| 2. Liste des E/S et brochage ESP32 | **v3 validée** (DEC-023) : `docs/architecture/BROCHAGE_ESP32.md` |
-| 3. Schéma (Julien, à la main) | À faire |
-| 4. PCB 4 couches (Julien, à la main) | À faire |
-| 5. Commande JLCPCB | À faire, **au plus tard ~14 nov** (PO-11) |
-| 6. Firmware Arduino ESP32 | À faire, en parallèle de la fabrication |
-| 7. Essais sur banc | À faire, fin novembre |
+| 0. Cadrage, reprise STM32 | Terminée |
+| 1. Carte de dev | Terminée (DEC-015) |
+| 2. Brochage | Terminé, v3 (DEC-023) |
+| 3. Alimentation | Terminée (DEC-026) |
+| 4. BOM cible et netlist cible | **v1 rédigées, jalons G1 et G2 à valider par Julien** : `hardware/BOM_CIBLE.md`, `hardware/NETLIST_CIBLE.md` |
+| 5. Schéma (Claude Code + API, contrôle Julien) | À faire, jalon G3. Prérequis : étape E0 (copie du projet STM32 par Julien) |
+| 6. PCB 4 couches | À faire, jalons G4 et G5 |
+| 7. Commande JLCPCB | **Au plus tard ~14 nov** (PO-11) |
+| 8. Firmware Arduino ESP32 | À faire, en parallèle de la fabrication |
+| 9. Essais | Fin novembre |
 
 ## Synthèse
 
@@ -40,11 +42,14 @@
 
 | N° | Sujet |
 |---|---|
-| PO-07 | Alimentation : proposition v1 à valider (`ALIMENTATION_ESP32.md`) |
-| PO-18 | Test au multimètre des diodes de la carte de dev |
-| STM32 PO-05 | Règles de la FSM (pour le firmware, pas pour le schéma) |
+| G1, G2 | Validation de la BOM et de la netlist cibles par Julien |
+| E0 | Copie du projet EasyEDA STM32 par Julien, installation du pont |
+| PO-22 | Délai de la saisie par l'API |
+| PO-21 | Écart entre les rangées de la carte de dev (bloque le placement) |
+| STM32 PO-05 | Règles de la FSM (firmware) |
 
 ## Prochaine étape
 
-1. Julien : valider l'alimentation (PO-07), faire le test au multimètre dès réception de la carte de dev (PO-18).
-2. Claude : liste des modifications du schéma STM32 pour Julien (blocs à retirer, signaux à rebrancher sur l'ESP32).
+1. Julien : valider G1 et G2 ; commander la carte de dev N8 (PO-18, PO-21 se mesurent dessus).
+2. Julien : étape E0 (copie du projet `PCB_PWM_SECURISE_V3` en `PCB_PWM_ESP32_V3`), lancement du pont, puis Claude Code dans ce dépôt.
+3. Claude Code : phase 0 sur la copie, puis saisie du schéma (G3).

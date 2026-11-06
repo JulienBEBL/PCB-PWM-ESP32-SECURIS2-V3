@@ -4,7 +4,7 @@ Lu automatiquement par Claude Code. Toute session Claude (Claude Code ou chat cl
 
 ## 1. Projet en une phrase
 
-Carte de repli de la carte STM32 V3 (`JulienBEBL/PCB_PWM_SECURISE_V3`) : même fonction, même cahier des charges, mais le STM32 soudé est remplacé par une **carte de développement ESP32 enfichée et amovible**. Conception manuelle par Julien, Claude en appui.
+Carte de repli de la carte STM32 V3 (`JulienBEBL/PCB_PWM_SECURISE_V3`) : même fonction, même cahier des charges, mais le STM32 soudé est remplacé par une **carte de développement ESP32 enfichée et amovible**. Schéma et PCB saisis par Claude Code via l'API EasyEDA, contrôlés par Julien (DEC-025).
 
 Fonction : lire une consigne PWM (1000–2000 µs, ~50 Hz), exécuter une machine d'états, piloter un vérin Actuonix L12 (12 V) par 2 relais DPDT, avec retour garanti en position sûre (tige rentrée). **Aucune défaillance simple ne doit provoquer l'action.**
 
@@ -19,10 +19,9 @@ Fonction : lire une consigne PWM (1000–2000 µs, ~50 Hz), exécuter une machin
 
 ## 3. Rôles
 
-- **Julien** : décide, dessine le schéma et le PCB à la main sous EasyEDA Pro, commande chez JLCPCB, teste.
-- **Claude** : propose, relit schéma et PCB, rédige la documentation, écrit le firmware, gère ce dépôt (commit, push).
-
-Pas de pilotage d'EasyEDA par l'API sur ce projet (différence avec le dépôt STM32).
+- **Julien** : décide, contrôle et valide schéma et PCB à chaque jalon, commande chez JLCPCB, teste.
+- **Claude** : propose, rédige la documentation, écrit le firmware, gère ce dépôt (commit, push).
+- **Claude Code** : saisit le schéma et le PCB en pilotant EasyEDA Pro par l'API, selon `hardware/CONSIGNES_EASYEDA_CLAUDE_CODE.md`. **Schéma, placement et routage très simples et clairs.** Ne modifie jamais le projet EasyEDA de la carte STM32.
 
 ## 4. Règles de travail
 

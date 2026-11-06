@@ -43,3 +43,15 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 **Suite de la session 02.** Julien supprime l'entrée maintenance (DEC-022), valide 2 extensions et la LED RGB sur GPIO6 : brochage v3 sans aucune broche sensible (DEC-023). Adaptateur 74AHCT1G125 validé sous réserve de compatibilité, vérifiée dans `BROCHAGE_ESP32.md` §5 (DEC-024).
 
 **Suite de la session 02.** Proposition d'alimentation v1 (`ALIMENTATION_ESP32.md`) : U15 sur J1, U16 réaffectée vers la broche 5V de la carte de dev, +3V3 pris sur la carte de dev (SGM2212, 800 mA), U2 supprimé. Effet : l'USB seul n'alimente pas les relais. Schéma Espressif lu en extrait texte : position des Schottky D1 / D7 non confirmée (PO-18, test au multimètre).
+
+## Session 02 (suite) — 2026-11-06
+
+**Décisions de Julien.** Alimentation validée (DEC-026). Schéma et PCB saisis par Claude Code via l'API EasyEDA, contrôlés par Julien, très simples et clairs (DEC-025).
+
+**Travaux.**
+
+- `hardware/NETLIST_CIBLE.md` v1 et `hardware/BOM_CIBLE.md` v1 (+ CSV), dérivées de la carte STM32 : blocs repris à l'identique, modifications marquées.
+- Modifications de fond relevées en dérivant : R413 passe de 20 à 15 kΩ (`ARM_FB` dépassait 3,3 V, l'ESP32 n'est pas tolérant 5 V) ; R504 supprimé avec la mesure de courant ; signaux d'extension limités à 3,3 V.
+- `hardware/CONSIGNES_EASYEDA_CLAUDE_CODE.md` : §0 propre à l'ESP32 (copie du projet STM32 comme base, règles de clarté C1 à C10, interdiction d'écrire dans le projet STM32).
+- Scripts de routage STM32 non copiés : ils contiennent l'uuid du projet STM32 en dur.
+- PO-07, PO-19, PO-20 clos. Nouveaux : PO-21 (écart des rangées), PO-22 (délai de la saisie par l'API).

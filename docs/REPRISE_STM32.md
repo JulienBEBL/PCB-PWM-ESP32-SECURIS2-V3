@@ -22,12 +22,12 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | DEC-050, DEC-051 | C++ / Arduino, Claude écrit, Julien teste | R | Cible : ESP32 Arduino au lieu de STM32duino |
 | DEC-052, DEC-053 | Dépôt GitHub, licence Apache 2.0 | A | Dépôt séparé (DEC-013), même licence |
 | DEC-060 | Quartz HSE | **S** | Fourni par la carte de dev |
-| DEC-061, DEC-063 | EasyEDA piloté par Claude Code via l'API | **S** | Conception manuelle par Julien (DEC-001) |
+| DEC-061, DEC-063 | EasyEDA piloté par Claude Code via l'API | R | Repris (DEC-025) |
 | DEC-062 | Assemblage complet JLCPCB | R | Confirmé par DEC-012 |
 | DEC-064 | Jalons G1, G2 | — | Propres au dépôt STM32 |
 | DEC-065 | Seuil de surtension LM74502 | R | |
 | DEC-066 | USB-C + CH340C + boutons BOOT / RESET | **S** | Fournis par la carte de dev |
-| DEC-067 | Diodes idéales LM66100 | A | U15 (entrée J1) reprise. U16 réaffectée entre +5V et la broche 5V de la carte de dev (proposé, PO-07) |
+| DEC-067 | Diodes idéales LM66100 | A | U15 (entrée J1) reprise. U16 réaffectée entre +5V et la broche 5V de la carte de dev (DEC-026) |
 | DEC-068, DEC-072 | Carte 120 × 80 mm, 4 trous M3, connecteurs sur bords opposés | ? | Dimensions à revoir avec la carte de dev (PO-10) |
 | DEC-069 | Isolement ≥ 2 mm entre domaines | R | |
 | DEC-070 | 4 couches S / GND / Alim / S | R | Confirmé par DEC-009 |
@@ -40,7 +40,7 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | Bloc | Repères STM32 | Statut | Remarque |
 |---|---|---|---|
 | Microcontrôleur, découplage | U1 | **S** | Carte de dev ESP32 sur barrettes femelles |
-| Régulateur 3,3 V | U2 | **S** (proposé) | +3V3 pris sur la broche 3V3 de la carte de dev. `ALIMENTATION_ESP32.md` A3, PO-07 |
+| Régulateur 3,3 V | U2 | **S** (DEC-026) | +3V3 pris sur la broche 3V3 de la carte de dev. `ALIMENTATION_ESP32.md` A3, PO-07 |
 | Quartz | Y1 | **S** | |
 | USB-C, CH340C, ESD USB, boutons | J12, U13, U14 | **S** | |
 | SWD | J9 | **S** | |

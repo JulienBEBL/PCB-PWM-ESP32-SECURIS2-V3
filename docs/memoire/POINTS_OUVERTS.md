@@ -11,10 +11,9 @@ Un point ouvert bloque ou conditionne une décision. Un point clos reste listé 
 | PO-02 | 2026-11-06 | Barrettes femelles : référence LCSC, montage traversant par JLCPCB, contacts tulipe pour l'extérieur. Approvisionnement de la carte de dev elle-même (LCSC ou autre) et délai. | C | Claude propose, Julien commande |
 | PO-03 | 2026-11-06 | Tenue de la carte de dev en extérieur : vibrations, oxydation des contacts, CEM. Maintien mécanique (vis, collier, entretoise). La carte de dev n'est pas conçue pour STM32 DEC-040 / DEC-041. | C | Julien (méca), Claude (analyse) |
 | PO-05 | 2026-11-06 | Coupure radio (DEC-007) : le matériel radio reste présent sur la carte de dev, la coupure est logicielle (radio jamais initialisée). Faut-il une preuve (mesure, revue de code) ? Le client accepte-t-il une radio présente mais inactive ? | M | Julien (client) |
-| PO-07 | 2026-11-06 | Alimentation avec la carte de dev (USB et 5 V exclusifs [D1]). **Proposition v1** : `docs/architecture/ALIMENTATION_ESP32.md` (U15 sur J1, U16 vers la broche 5V, +3V3 pris sur la carte de dev, U2 supprimé). À valider. | C | Julien |
 | PO-18 | 2026-11-06 | Position des Schottky D1 / D7 de la carte de dev (en série entre VBUS et le réseau 5V ?). Test au multimètre décrit dans `ALIMENTATION_ESP32.md` §6. | C | Julien |
-| PO-19 | 2026-11-06 | 74AHCT1G125 non alimenté, entrée pilotée par l'ESP32 (cas USB seul) : courant d'entrée à vérifier sur la datasheet TI. | M | Claude |
-| PO-20 | 2026-11-06 | Vérifier au schéma que la perte du +3V3 (carte de dev retirée) bloque les deux chaînes de relais. | C | Claude (relecture schéma) |
+| PO-21 | 2026-11-06 | Écart entre les rangées de broches de la carte de dev : 25,40 mm supposé (plan Espressif sans cote nommée). À mesurer sur la carte reçue. | C (placement) | Julien |
+| PO-22 | 2026-11-06 | **Délai avec la saisie par l'API.** Sur la carte STM32, la saisie et le placement ont pris plusieurs sessions et le routage n'est pas fini (défauts de l'API, STM32 PO-38). Parade : partir d'une copie du projet STM32 (étape E0). Si le 12 novembre le routage n'est pas engagé, Julien route à la main. | C | Julien, Claude Code |
 | PO-09 | 2026-11-06 | Liste des E/S ESP32 : reprise de STM32 E01–E18, S01–S09, X01–X08. Liaison série J10 utile ou non (l'USB de la carte de dev sert au moniteur série). | C | Claude propose, Julien valide |
 | PO-10 | 2026-11-06 | Dimensions de la carte (STM32 : 120 × 80 mm) avec la carte de dev enfichée. | C | Julien |
 | PO-11 | 2026-11-06 | **Date limite de commande JLCPCB** pour une réception fin novembre. Estimation : 5 à 7 jours de fabrication 4 couches + assemblage, 3 à 5 jours de transport express. Commande au plus tard le **14 novembre** environ. **[Hypothèse]** Délais à confirmer sur le devis JLCPCB. | C | Julien |
@@ -39,6 +38,9 @@ Ces points ont la même réponse pour les deux cartes. Ils sont suivis dans le d
 
 | N° | Clos le | Point | Résolution |
 |---|---|---|---|
+| PO-20 | 2026-11-06 | Perte du +3V3 | Vérifié sur la netlist : sans `+3V3` ni `CP_DRV`, Q3 et Q5 bloqués. À recontrôler au schéma (V5) |
+| PO-19 | 2026-11-06 | 74AHCT1G125 non alimenté | Datasheet TI SCLS378P : VI max 7 V indépendant de VCC, pas de diode vers VCC. Sans risque |
+| PO-07 | 2026-11-06 | Alimentation | Alimentation validée (DEC-026) |
 | PO-06 | 2026-11-06 | Niveau du PWM | Doublon de STM32 PO-04, suivi là-bas. Non bloquant |
 | PO-01 | 2026-11-06 | Modèle de carte de dev | ESP32-S3-DevKitC-1-N8 (DEC-015) |
 | PO-08 | 2026-11-06 | Mesure isolée du courant | Supprimée (DEC-016) |
