@@ -1,0 +1,21 @@
+# Normalisation des fins de ligne (LF dans le dépôt, conversion locale selon l'OS)
+* text=auto
+
+# Fichiers binaires
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.zip  binary
+*.7z   binary
+*.step binary
+*.stp  binary
+*.xlsx binary
+*.docx binary
+*.eprj binary
+*.epro binary
+*.epro2 binary
+*.eprj2 binary
+*.bin  binary
+*.hex  binary
+*.elf  binary
