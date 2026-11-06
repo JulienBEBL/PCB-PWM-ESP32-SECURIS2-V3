@@ -39,4 +39,6 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 | DEC-009 | 2026-11-06 | PCB **4 couches** accepté (empilement STM32 DEC-070 repris). | Validée | Julien |
 | DEC-010 | 2026-11-06 | **Entrées d'extension capteurs et buzzer conservés.** | Validée | Julien |
 | DEC-016 | 2026-11-06 | **Mesure isolée du courant du vérin supprimée** (STM32 X05, U8 / U9 / U10 et composants associés). | Validée | Julien : « PO-08 supprime ». Clôt PO-08. Diagnostic seulement, sans effet sur la sécurité |
+| DEC-017 | 2026-11-06 | **Brochage v1 validé** (`docs/architecture/BROCHAGE_ESP32.md`). **X04** (identification de révision) et **J10** (série USART2) supprimés. | Validée | Julien : « OK pour 1 2 3 ». Clôt PO-13. Usage des broches sensibles : PO-14 |
+| DEC-018 | 2026-11-06 | Principe : **ne pas utiliser les broches sensibles** (modifiées au démarrage) **s'il y a de la marge**. | Validée | Julien. Pas de marge en v1 : arbitrage PO-14 |
 | DEC-012 | 2026-11-06 | **Assemblage par JLCPCB au maximum.** Julien ne soude que ce que JLCPCB ne peut pas monter. | Validée | Julien. Barrettes femelles : PO-02 |

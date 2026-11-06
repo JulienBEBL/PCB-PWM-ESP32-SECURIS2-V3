@@ -1,6 +1,6 @@
 # Liste des E/S et brochage ESP32
 
-**Statut :** v1, proposition de Claude, **à valider par Julien** (PO-09, PO-13).
+**Statut :** v1 **validée** (DEC-017). Ajustement en attente sur les broches sensibles (PO-14).
 **Carte de dev :** ESP32-S3-DevKitC-1-**N8** (DEC-015). Module ESP32-S3-WROOM-1-N8 : flash 8 Mo Quad SPI, pas de PSRAM, VDD_SPI 3,3 V.
 
 **Sources vérifiées le 2026-11-06 :**
@@ -71,8 +71,8 @@ GPIO39 à 42 sont les broches JTAG. Avec la configuration d'usine, le JTAG passe
 | Élément STM32 | Statut | Raison |
 |---|---|---|
 | X05 `I_MON` (mesure de courant) | Supprimé | DEC-016 |
-| X04 Identification de révision | **Supprimé [Reco]** | Une seule révision de carte. Libère une broche. À valider |
-| J10 liaison série USART2 | **Supprimé [Reco]** | Le port USB-UART de la carte de dev sert au moniteur série. À valider |
+| X04 Identification de révision | Supprimé (DEC-017) | Une seule révision de carte |
+| J10 liaison série USART2 | Supprimé (DEC-017) | Le port USB-UART de la carte de dev sert au moniteur série |
 | X06 température, X07 surveillance 3,3 V | Non repris | Capteurs internes du STM32. L'ESP32-S3 a un capteur de température interne, peu précis. Sans objet pour la sécurité |
 | C01–C04 (UART, SWD), Y01–Y02 (quartz) | Supprimés | Fournis par la carte de dev |
 

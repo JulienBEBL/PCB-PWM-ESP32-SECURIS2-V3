@@ -33,3 +33,5 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 - Brochage v1 : `docs/architecture/BROCHAGE_ESP32.md`. 30 broches, aucune réserve. Sorties de sécurité actives à l'état haut, hors broches à impulsion haute, commandes et validations sur registres GPIO différents.
 - Constats nouveaux : la LED RGB est sur GPIO48 en v1.0 et GPIO38 en v1.1 ; les entrées USB et 5 V de la carte de dev sont exclusives (PO-07) ; le brochage n'est valable que pour la variante N8.
 - Propositions en attente (PO-13) : suppression de X04 et de J10.
+
+**Suite de la session 02.** Julien valide le brochage v1, la suppression de X04 et de J10 (DEC-017). Il pose le principe de ne pas utiliser les broches sensibles s'il y a de la marge (DEC-018). Pas de marge en v1 : arbitrage ouvert (PO-14).

@@ -8,7 +8,7 @@
 |---|---|
 | 0. Cadrage et reprise du dépôt STM32 | **Terminée** (`docs/REPRISE_STM32.md`) |
 | 1. Choix de la carte de dev ESP32 | **Terminée** : ESP32-S3-DevKitC-1-N8 (DEC-015) |
-| 2. Liste des E/S et brochage ESP32 | **v1 à valider** par Julien (PO-13) : `docs/architecture/BROCHAGE_ESP32.md` |
+| 2. Liste des E/S et brochage ESP32 | **v1 validée** (DEC-017), ajustement broches sensibles en attente (PO-14) |
 | 3. Schéma (Julien, à la main) | À faire |
 | 4. PCB 4 couches (Julien, à la main) | À faire |
 | 5. Commande JLCPCB | À faire, **au plus tard ~14 nov** (PO-11) |
@@ -40,12 +40,12 @@
 
 | N° | Sujet |
 |---|---|
-| PO-13 | Validation du brochage v1 |
+| PO-14 | Broches sensibles sans marge |
 | PO-07 | Architecture d'alimentation (USB et 5 V exclusifs) |
 | STM32 PO-05 | Règles de la FSM (pour le firmware, pas pour le schéma) |
 
 ## Prochaine étape
 
-1. Julien : valider le brochage v1 (PO-13), dont la suppression de X04 et J10.
+1. Julien : trancher PO-14 (broches sensibles).
 2. Claude : architecture d'alimentation avec la carte de dev (PO-07).
 3. Claude : liste des modifications du schéma STM32 pour Julien (blocs à retirer, signaux à rebrancher sur l'ESP32).
