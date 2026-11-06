@@ -15,7 +15,8 @@ Un point ouvert bloque ou conditionne une décision. Un point clos reste listé 
 | PO-09 | 2026-11-06 | Liste des E/S ESP32 : reprise de STM32 E01–E18, S01–S09, X01–X08. Liaison série J10 utile ou non (l'USB de la carte de dev sert au moniteur série). | C | Claude propose, Julien valide |
 | PO-10 | 2026-11-06 | Dimensions de la carte (STM32 : 120 × 80 mm) avec la carte de dev enfichée. | C | Julien |
 | PO-11 | 2026-11-06 | **Date limite de commande JLCPCB** pour une réception fin novembre. Estimation : 5 à 7 jours de fabrication 4 couches + assemblage, 3 à 5 jours de transport express. Commande au plus tard le **14 novembre** environ. **[Hypothèse]** Délais à confirmer sur le devis JLCPCB. | C | Julien |
-| PO-14 | 2026-11-06 | **Broches sensibles sans marge.** Brochage v1 : GPIO3, 18, 45, 46, 48 utilisées, aucune broche libre. Les libérer impose de supprimer 5 signaux. **[Reco]** compromis : réserver les broches sensibles aux fonctions non liées à la sécurité (LED, maintenance) ; déplacer `FC_S2_NC` de GPIO18 vers GPIO36 et `LED3` de GPIO36 vers GPIO18. | C | Julien |
+| PO-15 | 2026-11-06 | Entrée de mode maintenance `MAINT_IN` (GPIO3) : conservée par défaut, sans réponse de Julien. La garder ou la supprimer ? | M | Julien |
+| PO-16 | 2026-11-06 | LED RGB adressable : référence LCSC, plage de température (besoin −10 / +50 °C), tension d'alimentation, compatibilité de l'entrée avec 3,3 V ou adaptateur de niveau. | C | Claude |
 | PO-12 | 2026-11-06 | Contenu de l'autocontrôle au démarrage (DEC-011) : tensions, relecture relais au repos, cohérence NO / NC des fins de course, présence 12 V, cavalier, PWM. | M | Claude propose, Julien valide |
 
 ## Ouverts communs aux deux cartes (suivis dans le dépôt STM32)
@@ -40,5 +41,6 @@ Ces points ont la même réponse pour les deux cartes. Ils sont suivis dans le d
 | PO-06 | 2026-11-06 | Niveau du PWM | Doublon de STM32 PO-04, suivi là-bas. Non bloquant |
 | PO-01 | 2026-11-06 | Modèle de carte de dev | ESP32-S3-DevKitC-1-N8 (DEC-015) |
 | PO-08 | 2026-11-06 | Mesure isolée du courant | Supprimée (DEC-016) |
+| PO-14 | 2026-11-06 | Broches sensibles sans marge | LED RGB (DEC-019) ; seules des fonctions sans lien avec la sécurité restent sur des broches sensibles (DEC-020) |
 | PO-13 | 2026-11-06 | Validation du brochage v1 | Validé, X04 et J10 supprimés (DEC-017) |
 | PO-04 | 2026-11-06 | États des broches au reset et au démarrage | Vérifiés sur la datasheet ESP32-S3 v2.2 (tab. 2-1, 2-2, 3-1). Règles R1 à R7 de `BROCHAGE_ESP32.md` |

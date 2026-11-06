@@ -55,7 +55,7 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | Protection 12 V | U5, Q8, Q9, D2, D3, D8, F2 | R | |
 | Opto présence 12 V, arrêt matériel | U6, U7 | R | |
 | Mesure isolée du courant (I_MON) | U8, U9, U10 | **S** | DEC-016. Retirer aussi le shunt et les composants passifs associés |
-| LED, buzzer, sortie STATUS | LED1 à LED5, LS1, Q2, Q7 | R | |
+| LED, buzzer, sortie STATUS | LED1 à LED5, LS1, Q2, Q7 | A | LED1 à LED4 remplacées par 1 LED RGB adressable (DEC-019). LED5, buzzer, STATUS repris |
 | Alimentation 5 V : TVS, fusible | D1, F1 | R | |
 | Connecteurs | J1 à J8, J13 à J15 | R | Brochage des borniers inchangé : câblage externe identique pour les deux cartes |
 | Points de test | TP1 à TP7 | R | |

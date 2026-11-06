@@ -35,3 +35,5 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 - Propositions en attente (PO-13) : suppression de X04 et de J10.
 
 **Suite de la session 02.** Julien valide le brochage v1, la suppression de X04 et de J10 (DEC-017). Il pose le principe de ne pas utiliser les broches sensibles s'il y a de la marge (DEC-018). Pas de marge en v1 : arbitrage ouvert (PO-14).
+
+**Suite de la session 02.** Pour libérer les broches sensibles, Julien valide une LED RGB adressable à la place des 4 LED (DEC-019). Brochage v2 : seules `RGB_DATA` (GPIO46) et `MAINT_IN` (GPIO3) restent sur des broches sensibles ; `FC_S2_NC` passe sur GPIO36 (DEC-020). Réserve : GPIO18, 45, 48. Maintien de `MAINT_IN` sans réponse (PO-15).
