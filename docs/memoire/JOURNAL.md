@@ -41,3 +41,5 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 **Suite de la session 02.** Julien accepte 2 extensions au lieu de 4 si besoin (DEC-021). Question sur l'entrée maintenance : Claude recommande de la supprimer (PO-15). WS2812B : seuil d'entrée 0,7 × VDD incompatible avec une sortie 3,3 V, adaptateur de niveau recommandé (PO-16). Proposition : aucune broche sensible utilisée (PO-17).
 
 **Suite de la session 02.** Julien supprime l'entrée maintenance (DEC-022), valide 2 extensions et la LED RGB sur GPIO6 : brochage v3 sans aucune broche sensible (DEC-023). Adaptateur 74AHCT1G125 validé sous réserve de compatibilité, vérifiée dans `BROCHAGE_ESP32.md` §5 (DEC-024).
+
+**Suite de la session 02.** Proposition d'alimentation v1 (`ALIMENTATION_ESP32.md`) : U15 sur J1, U16 réaffectée vers la broche 5V de la carte de dev, +3V3 pris sur la carte de dev (SGM2212, 800 mA), U2 supprimé. Effet : l'USB seul n'alimente pas les relais. Schéma Espressif lu en extrait texte : position des Schottky D1 / D7 non confirmée (PO-18, test au multimètre).

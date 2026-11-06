@@ -40,10 +40,11 @@
 
 | N° | Sujet |
 |---|---|
-| PO-07 | Architecture d'alimentation (USB et 5 V exclusifs) |
+| PO-07 | Alimentation : proposition v1 à valider (`ALIMENTATION_ESP32.md`) |
+| PO-18 | Test au multimètre des diodes de la carte de dev |
 | STM32 PO-05 | Règles de la FSM (pour le firmware, pas pour le schéma) |
 
 ## Prochaine étape
 
-1. Claude : architecture d'alimentation avec la carte de dev (PO-07).
+1. Julien : valider l'alimentation (PO-07), faire le test au multimètre dès réception de la carte de dev (PO-18).
 2. Claude : liste des modifications du schéma STM32 pour Julien (blocs à retirer, signaux à rebrancher sur l'ESP32).

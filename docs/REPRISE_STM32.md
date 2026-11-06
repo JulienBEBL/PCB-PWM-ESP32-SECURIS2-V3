@@ -27,7 +27,7 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | DEC-064 | Jalons G1, G2 | — | Propres au dépôt STM32 |
 | DEC-065 | Seuil de surtension LM74502 | R | |
 | DEC-066 | USB-C + CH340C + boutons BOOT / RESET | **S** | Fournis par la carte de dev |
-| DEC-067 | Diodes idéales LM66100 | A | U15 (entrée 5 V) à garder ou non selon PO-07. U16 (USB) supprimée |
+| DEC-067 | Diodes idéales LM66100 | A | U15 (entrée J1) reprise. U16 réaffectée entre +5V et la broche 5V de la carte de dev (proposé, PO-07) |
 | DEC-068, DEC-072 | Carte 120 × 80 mm, 4 trous M3, connecteurs sur bords opposés | ? | Dimensions à revoir avec la carte de dev (PO-10) |
 | DEC-069 | Isolement ≥ 2 mm entre domaines | R | |
 | DEC-070 | 4 couches S / GND / Alim / S | R | Confirmé par DEC-009 |
@@ -40,9 +40,9 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | Bloc | Repères STM32 | Statut | Remarque |
 |---|---|---|---|
 | Microcontrôleur, découplage | U1 | **S** | Carte de dev ESP32 sur barrettes femelles |
-| Régulateur 3,3 V | U2 | ? | Régulateur de la carte de dev ou régulateur propre (PO-07) |
+| Régulateur 3,3 V | U2 | **S** (proposé) | +3V3 pris sur la broche 3V3 de la carte de dev. `ALIMENTATION_ESP32.md` A3, PO-07 |
 | Quartz | Y1 | **S** | |
-| USB-C, CH340C, ESD USB, boutons | J12, U13, U14, U16 | **S** | |
+| USB-C, CH340C, ESD USB, boutons | J12, U13, U14 | **S** | |
 | SWD | J9 | **S** | |
 | Liaison série J10 (USART2) | J10 | **S** | DEC-017 |
 | Entrée PWM : ESD, buffer de Schmitt | D9, U3 | R | Compatible 3,3 / 5 V : le niveau du PWM reste non bloquant |
