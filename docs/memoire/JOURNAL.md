@@ -65,3 +65,5 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 - Consignes, guide d'installation et netlist adaptés au projet vierge sur le PC personnel.
 - Firmware v0 de mise en service : mesure PWM, fins de course, relectures, autocontrôle, watchdogs, LED RGB, STATUS, journal série. Aucune commande du vérin. Radio jamais initialisée. Vérification de syntaxe seulement (pas de chaîne ESP32 dans l'environnement).
 - PO-09 clos. Nouveau : PO-23 (Julien annonce « travailler sur la partie PCB » : rôle à préciser).
+
+**Suite de la session 02.** Julien confirme : Claude Code saisit, il contrôle (DEC-031). Il demande une FSM simple à 4 états parcourus dans un seul sens (DEC-030). Proposition `FSM_V1.md` : REPOS → PRÊT → ACTION → APRÈS, bandes PWM à zones mortes, double confirmation PRÊT puis ACTION, réarmement par REPOS obligatoire, DÉMARRAGE et DÉFAUT hors cycle. Firmware v1 écrit (`firmware/carte_pwm_esp32_v1/`), syntaxe vérifiée seulement. Point clé à valider : maintien de la position sortie (PO-24).

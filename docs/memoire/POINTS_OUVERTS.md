@@ -12,9 +12,9 @@ Un point ouvert bloque ou conditionne une décision. Un point clos reste listé 
 | PO-03 | 2026-11-06 | Tenue de la carte de dev en extérieur : vibrations, oxydation des contacts, CEM. Maintien mécanique (vis, collier, entretoise). La carte de dev n'est pas conçue pour STM32 DEC-040 / DEC-041. | C | Julien (méca), Claude (analyse) |
 | PO-05 | 2026-11-06 | Coupure radio (DEC-007) : le matériel radio reste présent sur la carte de dev, la coupure est logicielle (radio jamais initialisée). Faut-il une preuve (mesure, revue de code) ? Le client accepte-t-il une radio présente mais inactive ? | M | Julien (client) |
 | PO-18 | 2026-11-06 | Position des Schottky D1 / D7 de la carte de dev (en série entre VBUS et le réseau 5V ?). Test au multimètre décrit dans `ALIMENTATION_ESP32.md` §6. | C | Julien |
+| PO-24 | 2026-11-06 | **Validation de la FSM v1** (`docs/architecture/FSM_V1.md`) : 2 états techniques ajoutés (DÉMARRAGE, DÉFAUT), bandes PWM 1000–1300 / 1400–1600 / 1700–2000 µs, confirmations 500 / 300 ms, course max 3 s, **maintien en position sortie tant que l'action est demandée [Hypothèse]** (variante : retour automatique dès la butée). Bandes à vérifier avec le contrôleur externe. | **B** pour firmware | Julien |
 | PO-21 | 2026-11-06 | Écart entre les rangées de broches de la carte de dev : 25,40 mm supposé (plan Espressif sans cote nommée). À mesurer sur la carte reçue. | C (placement) | Julien |
 | PO-22 | 2026-11-06 | **Délai avec la saisie par l'API.** Sur la carte STM32, la saisie et le placement ont pris plusieurs sessions et le routage n'est pas fini (défauts de l'API, STM32 PO-38). Projet vierge (DEC-028) : saisie complète, plus longue qu'une copie. Si le 12 novembre le routage n'est pas engagé, Julien route à la main. | C | Julien, Claude Code |
-| PO-23 | 2026-11-06 | Rôle de Julien sur le PCB : il annonce « travailler sur la partie PCB ». Fait-il lui-même placement et routage, ou contrôle-t-il le travail de Claude Code (DEC-025) ? | C | Julien |
 | PO-10 | 2026-11-06 | Dimensions de la carte (STM32 : 120 × 80 mm) avec la carte de dev enfichée. | C | Julien |
 | PO-11 | 2026-11-06 | **Date limite de commande JLCPCB** pour une réception fin novembre. Estimation : 5 à 7 jours de fabrication 4 couches + assemblage, 3 à 5 jours de transport express. Commande au plus tard le **14 novembre** environ. **[Hypothèse]** Délais à confirmer sur le devis JLCPCB. | C | Julien |
 | PO-12 | 2026-11-06 | Contenu de l'autocontrôle au démarrage (DEC-011) : tensions, relecture relais au repos, cohérence NO / NC des fins de course, présence 12 V, cavalier, PWM. | M | Claude propose, Julien valide |
@@ -26,7 +26,7 @@ Ces points ont la même réponse pour les deux cartes. Ils sont suivis dans le d
 | N° STM32 | Point | Criticité |
 |---|---|---|
 | PO-03 | Plage de tension du 12 V | B |
-| PO-05 | Règles de la FSM | B pour firmware |
+| PO-05 | Règles de la FSM | Pour la carte ESP32 : FSM v1 proposée (DEC-030, PO-24) |
 | PO-07 | Type des capteurs d'extension | C |
 | PO-12 | Nombre et sens des LED, type de buzzer | M |
 | PO-18 | Version du vérin | B |
@@ -44,6 +44,7 @@ Ces points ont la même réponse pour les deux cartes. Ils sont suivis dans le d
 | PO-06 | 2026-11-06 | Niveau du PWM | Doublon de STM32 PO-04, suivi là-bas. Non bloquant |
 | PO-01 | 2026-11-06 | Modèle de carte de dev | ESP32-S3-DevKitC-1-N8 (DEC-015) |
 | PO-08 | 2026-11-06 | Mesure isolée du courant | Supprimée (DEC-016) |
+| PO-23 | 2026-11-06 | Rôle sur le PCB | Claude Code saisit, Julien contrôle (DEC-031) |
 | PO-09 | 2026-11-06 | Liste des E/S ESP32 | Brochage v3 (DEC-023) |
 | PO-15 | 2026-11-06 | Entrée maintenance | Supprimée (DEC-022) |
 | PO-16 | 2026-11-06 | LED RGB : niveau logique, température | Adaptateur 74AHCT1G125 (DEC-024). Codes LCSC C7484 et C114586 à confirmer au devis |

@@ -2,6 +2,13 @@
 
 Code Arduino pour la carte de dev ESP32-S3-DevKitC-1-N8.
 
+| Dossier | Version | Usage |
+|---|---|---|
+| `carte_pwm_esp32/` | v0, mise en service | Vérifier la carte. **Ne commande jamais le vérin** |
+| `carte_pwm_esp32_v1/` | v1, FSM 4 états | Fonctionnement normal. Spécification : `docs/architecture/FSM_V1.md` (à valider, PO-24) |
+
+Les deux versions partagent le même brochage et les mêmes réglages. **Charger d'abord la v0**, valider la carte, puis la v1.
+
 ## Version v0 — mise en service (`carte_pwm_esp32/`)
 
 **Le vérin n'est jamais commandé** : `K1_CMD` et `K2_CMD` restent à 0, la pompe de charge est arrêtée. Cette version sert à vérifier la carte de dev, puis la carte complète.
@@ -17,7 +24,7 @@ Code Arduino pour la carte de dev ESP32-S3-DevKitC-1-N8.
 | Commande du vérin (état ACTION) | **Non**, attend la FSM (STM32 PO-05) |
 | Radio | Jamais initialisée : aucune bibliothèque radio incluse (DEC-007) |
 
-**Non compilé dans cet environnement** : seule une vérification de syntaxe a été faite. Premier test à faire par Julien.
+**v0 et v1 non compilées dans cet environnement** : seule une vérification de syntaxe a été faite. Premier test à faire par Julien.
 
 ## Installation (une fois)
 
@@ -55,3 +62,20 @@ Ligne STATUS : basse = carte prête (état SÛRE), haute = non prête ou défaut
 Sans la carte complète, les entrées sont en l'air. Le firmware passe en **DÉFAUT** (fins de course incohérentes, +5V hors plage). C'est le comportement attendu. Ce test valide la compilation, le téléversement, la LED RGB de GPIO6 (si câblée) et le moniteur série.
 
 Mesure du PWM sur la carte de dev seule : relier la sortie d'un testeur de servo (signal 3,3 V, masse commune) à GPIO1. **Ne pas injecter 5 V directement sur une broche de l'ESP32.**
+
+## Version v1 — FSM 4 états (`carte_pwm_esp32_v1/`)
+
+Cycle REPOS → PRÊT → ACTION → APRÈS → REPOS, toujours dans ce sens. États techniques : DÉMARRAGE, DÉFAUT (verrouillé jusqu'au reset). Détail : `docs/architecture/FSM_V1.md`.
+
+| Couleur | État |
+|---|---|
+| Bleu fixe | DÉMARRAGE |
+| Vert | 1 REPOS |
+| Orange | 2 PRÊT |
+| Bleu clignotant + bips | 3 ACTION |
+| Cyan | 4 APRÈS (retour) |
+| Rouge clignotant | DÉFAUT |
+
+Les seuils et temporisations sont dans `carte_pwm_esp32_v1/config.h`.
+
+**Premier essai avec le vérin** : vérin à vide, sans charge, blocage mécanique en place. Vérifier d'abord que l'état PRÊT ne produit aucun mouvement.

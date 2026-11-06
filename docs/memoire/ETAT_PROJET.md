@@ -14,7 +14,7 @@
 | 5. Schéma (Claude Code + API, contrôle Julien) | À faire, jalon G3. Prérequis : étape E0 sur le PC personnel (installation + projet vierge, DEC-028) |
 | 6. PCB 4 couches | À faire, jalons G4 et G5 |
 | 7. Commande JLCPCB | **Au plus tard ~14 nov** (PO-11) |
-| 8. Firmware Arduino ESP32 | **v0 de mise en service écrite** (`firmware/carte_pwm_esp32/`), sans commande du vérin. Non compilée ici |
+| 8. Firmware Arduino ESP32 | **v0** (mise en service, sans commande du vérin) et **v1** (FSM 4 états, DEC-030) écrites. Non compilées ici. FSM à valider (PO-24) |
 | 9. Essais | Fin novembre |
 
 ## Synthèse
@@ -43,14 +43,13 @@
 | N° | Sujet |
 |---|---|
 | E0 | Installation EasyEDA + API sur le PC personnel, projet vierge `PCB_PWM_ESP32_V3` |
-| PO-23 | Qui fait placement et routage |
+| PO-24 | Validation de la FSM v1 |
 | PO-22 | Délai de la saisie par l'API |
 | PO-21 | Écart entre les rangées de la carte de dev (bloque le placement) |
-| STM32 PO-05 | Règles de la FSM (firmware) |
 
 ## Prochaine étape
 
 1. Julien : étape E0 sur le PC personnel (`hardware/INSTALLATION_EASYEDA_API.md`), puis Claude Code dans un clone de ce dépôt.
 2. Claude Code : phase 0, puis saisie du schéma (G3).
 3. Julien, à réception de la carte de dev : test au multimètre (PO-18), mesure de l'écart des rangées (PO-21), premier téléversement du firmware v0.
-4. Julien : décrire la FSM (STM32 PO-05) pour la version v1 du firmware.
+4. Julien : valider la FSM v1 (PO-24), en particulier le maintien en position sortie et les bandes PWM.

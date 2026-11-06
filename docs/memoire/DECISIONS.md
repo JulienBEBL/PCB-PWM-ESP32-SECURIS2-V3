@@ -24,6 +24,7 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 | DEC-027 | 2026-11-06 | **Jalons G1 (BOM cible) et G2 (netlist cible) validés.** Claude travaille en autonomie jusqu'au prochain jalon. | Validée | Julien : « je valide tout, travaille en autonomie » |
 | DEC-028 | 2026-11-06 | Schéma et PCB dans un **nouveau projet EasyEDA vierge** `PCB_PWM_ESP32_V3`, sur le **PC personnel** de Julien. Pas de copie du projet STM32. | Validée | Julien. Remplace l'étape E0 « copie » proposée |
 | DEC-029 | 2026-11-06 | Carte de dev ESP32-S3-DevKitC-1-N8 commandée par Julien en parallèle. | Validée | Julien. Réception : PO-18, PO-21 |
+| DEC-031 | 2026-11-06 | Rôle sur le PCB : Julien lance Claude Code sur son PC et contrôle son travail (confirme DEC-025). | Validée | Julien. Clôt PO-23 |
 | DEC-013 | 2026-11-06 | Dépôt séparé `JulienBEBL/PCB-PWM-ESP32-SECURIS2-V3`, alimenté par les informations du dépôt STM32 (copie figée dans `references/stm32_v3/`). | Validée | Julien |
 | DEC-014 | 2026-11-06 | **Délai** : carte reçue et testée fin novembre 2026. Conception (schéma + PCB) en 2 semaines maximum. | Validée | Julien. Date de commande au plus tard : PO-11 |
 
@@ -34,6 +35,7 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 | DEC-006 | 2026-11-06 | MCU = **carte de développement ESP32 enfichée** sur barrettes femelles, amovible. Pas de module ESP32 soudé. Remplace STM32 DEC-035 et DEC-036. | Validée | Julien : « ESP32 rajouté manuellement, qui peut s'enlever, avec les broches ». Modèle : PO-01 |
 | DEC-007 | 2026-11-06 | **Toutes les communications radio coupées** : Wi-Fi, Bluetooth, et toute autre liaison sans fil. | Validée | Julien. Mise en œuvre et preuve : PO-05 |
 | DEC-015 | 2026-11-06 | Carte de dev : **ESP32-S3-DevKitC-1-N8** (module WROOM-1-N8, flash Quad SPI 8 Mo, sans PSRAM). La variante N8 est imposée par le brochage. | Validée | Julien : « PO-01 validé ». Clôt PO-01. `docs/architecture/BROCHAGE_ESP32.md` A2 |
+| DEC-030 | 2026-11-06 | **FSM simple à 4 états**, parcourus toujours dans le même sens : normal (REPOS), prêt à actionner (PRÊT), action en cours (ACTION), après l'action (APRÈS). Claude propose le détail. | Validée (principe) | Julien. Détail proposé : `FSM_V1.md`, à valider (PO-24) |
 | DEC-011 | 2026-11-06 | Autocontrôle au démarrage réalisé par l'ESP32, si faisable. | À confirmer | Julien. Contenu de l'autocontrôle : PO-12 |
 
 ## Matériel et fabrication
