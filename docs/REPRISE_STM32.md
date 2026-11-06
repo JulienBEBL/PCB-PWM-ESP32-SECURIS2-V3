@@ -15,9 +15,9 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | DEC-020 à DEC-029 | Sécurité : aucune défaillance simple, isolation, 2 relais DPDT, relecture, opto 12 V, cavalier, 3 barrières, arrêt matériel | R | Cœur du projet. Confirmé par DEC-003 de ce dépôt |
 | DEC-030 à DEC-034 | Entrées PWM, alimentation 5 V, LED, buzzer, extensions, protection 12 V | R | |
 | DEC-035 | MCU soudé sur le PCB | **S** | Remplacé par DEC-006 (carte de dev enfichée) |
-| DEC-036 | STM32G071CBT6 | **S** | Remplacé par l'ESP32 (PO-01) |
+| DEC-036 | STM32G071CBT6 | **S** | Remplacé par l'ESP32-S3-DevKitC-1-N8 (DEC-015) |
 | DEC-037, DEC-038 | Fins de course NO + NC, 8 entrées | R | |
-| DEC-039 | Fonctions X01 à X08 | A | Liste à revoir avec le brochage ESP32 (PO-09) |
+| DEC-039 | Fonctions X01 à X08 | A | X05 supprimée (DEC-016). X01, X02, X03 reprises. X04 : suppression proposée (PO-13). `BROCHAGE_ESP32.md` §3 |
 | DEC-040 à DEC-043 | CEM / IEM | R | Point d'attention : la carte de dev n'est pas conçue pour ces niveaux (PO-03) |
 | DEC-050, DEC-051 | C++ / Arduino, Claude écrit, Julien teste | R | Cible : ESP32 Arduino au lieu de STM32duino |
 | DEC-052, DEC-053 | Dépôt GitHub, licence Apache 2.0 | A | Dépôt séparé (DEC-013), même licence |
@@ -44,7 +44,7 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | Quartz | Y1 | **S** | |
 | USB-C, CH340C, ESD USB, boutons | J12, U13, U14, U16 | **S** | |
 | SWD | J9 | **S** | |
-| Liaison série J10 (USART2) | J10 | ? | Utile au diagnostic ou non (PO-09) |
+| Liaison série J10 (USART2) | J10 | ? | Suppression proposée (PO-13) |
 | Entrée PWM : ESD, buffer de Schmitt | D9, U3 | R | Compatible 3,3 / 5 V : le niveau du PWM reste non bloquant |
 | Fins de course : rappel, filtre RC, ESD | U11, U12, R, C | R | |
 | Entrées d'extension | D11 à D14, R, C | R | Broches ESP32 capables ADC à affecter |
@@ -54,7 +54,7 @@ Légende : **R** = repris tel quel · **A** = adapté · **S** = supprimé · **
 | Cavalier d'armement | J7 | R | |
 | Protection 12 V | U5, Q8, Q9, D2, D3, D8, F2 | R | |
 | Opto présence 12 V, arrêt matériel | U6, U7 | R | |
-| Mesure isolée du courant (I_MON) | U8, U9, U10 | ? | Diagnostic, pas sécurité. Candidat à la suppression pour simplifier (PO-08) |
+| Mesure isolée du courant (I_MON) | U8, U9, U10 | **S** | DEC-016. Retirer aussi le shunt et les composants passifs associés |
 | LED, buzzer, sortie STATUS | LED1 à LED5, LS1, Q2, Q7 | R | |
 | Alimentation 5 V : TVS, fusible | D1, F1 | R | |
 | Connecteurs | J1 à J8, J13 à J15 | R | Brochage des borniers inchangé : câblage externe identique pour les deux cartes |

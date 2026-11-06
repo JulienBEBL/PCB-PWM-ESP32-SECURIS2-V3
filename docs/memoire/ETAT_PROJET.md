@@ -1,14 +1,14 @@
 # État du projet
 
-**Dernière mise à jour :** 2026-11-06 (session 01)
+**Dernière mise à jour :** 2026-11-06 (session 02)
 
 ## Phase en cours
 
 | Phase | Statut |
 |---|---|
 | 0. Cadrage et reprise du dépôt STM32 | **Terminée** (`docs/REPRISE_STM32.md`) |
-| 1. Choix de la carte de dev ESP32 | **En cours** (PO-01) |
-| 2. Liste des E/S et brochage ESP32 | À faire (PO-04, PO-09) |
+| 1. Choix de la carte de dev ESP32 | **Terminée** : ESP32-S3-DevKitC-1-N8 (DEC-015) |
+| 2. Liste des E/S et brochage ESP32 | **v1 à valider** par Julien (PO-13) : `docs/architecture/BROCHAGE_ESP32.md` |
 | 3. Schéma (Julien, à la main) | À faire |
 | 4. PCB 4 couches (Julien, à la main) | À faire |
 | 5. Commande JLCPCB | À faire, **au plus tard ~14 nov** (PO-11) |
@@ -19,7 +19,8 @@
 
 - Même fonction et même CdC que la carte STM32 (DEC-002). Aucune défaillance simple ne provoque l'action (DEC-003).
 - Carte jumelle : tous les blocs de sécurité STM32 conservés (DEC-004).
-- MCU : carte de dev ESP32 enfichée, amovible (DEC-006). Modèle recommandé : ESP32-S3-DevKitC-1-N8 (PO-01).
+- MCU : ESP32-S3-DevKitC-1-**N8** enfichée, amovible (DEC-006, DEC-015). 30 broches utilisées, aucune réserve.
+- Mesure isolée du courant supprimée (DEC-016).
 - Radio coupée : Wi-Fi et Bluetooth jamais initialisés (DEC-007).
 - Usage chez le client, en extérieur (DEC-008). PCB 4 couches (DEC-009). Assemblage JLCPCB au maximum (DEC-012).
 - Câblage externe identique à la carte STM32 : mêmes borniers, même brochage. Les deux cartes sont interchangeables côté câblage (objectif, à tenir au schéma).
@@ -39,12 +40,12 @@
 
 | N° | Sujet |
 |---|---|
-| PO-01 | Modèle de carte de dev |
-| PO-04 | États des broches ESP32 au démarrage |
+| PO-13 | Validation du brochage v1 |
+| PO-07 | Architecture d'alimentation (USB et 5 V exclusifs) |
 | STM32 PO-05 | Règles de la FSM (pour le firmware, pas pour le schéma) |
 
 ## Prochaine étape
 
-1. Julien : valider le modèle de carte de dev (PO-01) et trancher PO-08 (mesure de courant).
-2. Claude : liste des E/S ESP32 et plan de brochage, vérifiés sur la datasheet (PO-04, PO-09).
-3. Claude : architecture d'alimentation avec la carte de dev (PO-07).
+1. Julien : valider le brochage v1 (PO-13), dont la suppression de X04 et J10.
+2. Claude : architecture d'alimentation avec la carte de dev (PO-07).
+3. Claude : liste des modifications du schéma STM32 pour Julien (blocs à retirer, signaux à rebrancher sur l'ESP32).

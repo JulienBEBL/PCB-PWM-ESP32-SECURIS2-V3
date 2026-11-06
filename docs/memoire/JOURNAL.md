@@ -22,3 +22,14 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 - Décisions DEC-001 à DEC-014. Points ouverts PO-01 à PO-12.
 
 **Suite.** Validation de la carte de dev par Julien, puis liste des E/S et brochage.
+
+## Session 02 — 2026-11-06 (chat claude.ai)
+
+**Décisions de Julien.** ESP32-S3-DevKitC-1-N8 validée (DEC-015). Mesure isolée du courant supprimée (DEC-016).
+
+**Travaux.**
+
+- Vérification sur la documentation Espressif : guide DevKitC-1 v1.1 (brochage J1 / J3, variantes, alimentation) et datasheet ESP32-S3 v2.2 (état au reset, impulsions au démarrage, broches de démarrage, broches flash). Clôt PO-04.
+- Brochage v1 : `docs/architecture/BROCHAGE_ESP32.md`. 30 broches, aucune réserve. Sorties de sécurité actives à l'état haut, hors broches à impulsion haute, commandes et validations sur registres GPIO différents.
+- Constats nouveaux : la LED RGB est sur GPIO48 en v1.0 et GPIO38 en v1.1 ; les entrées USB et 5 V de la carte de dev sont exclusives (PO-07) ; le brochage n'est valable que pour la variante N8.
+- Propositions en attente (PO-13) : suppression de X04 et de J10.

@@ -29,6 +29,7 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 |---|---|---|---|---|
 | DEC-006 | 2026-11-06 | MCU = **carte de développement ESP32 enfichée** sur barrettes femelles, amovible. Pas de module ESP32 soudé. Remplace STM32 DEC-035 et DEC-036. | Validée | Julien : « ESP32 rajouté manuellement, qui peut s'enlever, avec les broches ». Modèle : PO-01 |
 | DEC-007 | 2026-11-06 | **Toutes les communications radio coupées** : Wi-Fi, Bluetooth, et toute autre liaison sans fil. | Validée | Julien. Mise en œuvre et preuve : PO-05 |
+| DEC-015 | 2026-11-06 | Carte de dev : **ESP32-S3-DevKitC-1-N8** (module WROOM-1-N8, flash Quad SPI 8 Mo, sans PSRAM). La variante N8 est imposée par le brochage. | Validée | Julien : « PO-01 validé ». Clôt PO-01. `docs/architecture/BROCHAGE_ESP32.md` A2 |
 | DEC-011 | 2026-11-06 | Autocontrôle au démarrage réalisé par l'ESP32, si faisable. | À confirmer | Julien. Contenu de l'autocontrôle : PO-12 |
 
 ## Matériel et fabrication
@@ -37,4 +38,5 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 |---|---|---|---|---|
 | DEC-009 | 2026-11-06 | PCB **4 couches** accepté (empilement STM32 DEC-070 repris). | Validée | Julien |
 | DEC-010 | 2026-11-06 | **Entrées d'extension capteurs et buzzer conservés.** | Validée | Julien |
+| DEC-016 | 2026-11-06 | **Mesure isolée du courant du vérin supprimée** (STM32 X05, U8 / U9 / U10 et composants associés). | Validée | Julien : « PO-08 supprime ». Clôt PO-08. Diagnostic seulement, sans effet sur la sécurité |
 | DEC-012 | 2026-11-06 | **Assemblage par JLCPCB au maximum.** Julien ne soude que ce que JLCPCB ne peut pas monter. | Validée | Julien. Barrettes femelles : PO-02 |
