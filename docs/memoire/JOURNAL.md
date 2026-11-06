@@ -37,3 +37,5 @@ Historique des échanges, session par session. Les décisions sont dans `DECISIO
 **Suite de la session 02.** Julien valide le brochage v1, la suppression de X04 et de J10 (DEC-017). Il pose le principe de ne pas utiliser les broches sensibles s'il y a de la marge (DEC-018). Pas de marge en v1 : arbitrage ouvert (PO-14).
 
 **Suite de la session 02.** Pour libérer les broches sensibles, Julien valide une LED RGB adressable à la place des 4 LED (DEC-019). Brochage v2 : seules `RGB_DATA` (GPIO46) et `MAINT_IN` (GPIO3) restent sur des broches sensibles ; `FC_S2_NC` passe sur GPIO36 (DEC-020). Réserve : GPIO18, 45, 48. Maintien de `MAINT_IN` sans réponse (PO-15).
+
+**Suite de la session 02.** Julien accepte 2 extensions au lieu de 4 si besoin (DEC-021). Question sur l'entrée maintenance : Claude recommande de la supprimer (PO-15). WS2812B : seuil d'entrée 0,7 × VDD incompatible avec une sortie 3,3 V, adaptateur de niveau recommandé (PO-16). Proposition : aucune broche sensible utilisée (PO-17).

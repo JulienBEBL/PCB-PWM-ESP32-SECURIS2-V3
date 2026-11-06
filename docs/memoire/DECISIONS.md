@@ -43,4 +43,5 @@ Les décisions du dépôt STM32 s'appliquent ici sauf écart listé dans `docs/R
 | DEC-018 | 2026-11-06 | Principe : **ne pas utiliser les broches sensibles** (modifiées au démarrage) **s'il y a de la marge**. | Validée | Julien. Pas de marge en v1 : arbitrage PO-14 |
 | DEC-019 | 2026-11-06 | **1 LED RGB adressable** (type WS2812B / SK6812, 1 broche) remplace les 4 LED d'état. LED5 « 3,3 V présent » conservée. | Validée | Julien : « OUI ». Référence et niveau logique : PO-16 |
 | DEC-020 | 2026-11-06 | Broches sensibles : utilisées seulement pour des fonctions sans lien avec la sécurité (`RGB_DATA` GPIO46, `MAINT_IN` GPIO3). `FC_S2_NC` déplacée de GPIO18 à GPIO36. Brochage v2. | Validée | Découle de DEC-018 et DEC-019, brochage v2 demandé par Julien. Clôt PO-14 |
+| DEC-021 | 2026-11-06 | Entrées d'extension réductibles à **2** (1 numérique, 1 analogique) si des broches manquent. | Validée | Julien : « si besoin de pin, passe à seulement 2 extensions ». Application : PO-17 |
 | DEC-012 | 2026-11-06 | **Assemblage par JLCPCB au maximum.** Julien ne soude que ce que JLCPCB ne peut pas monter. | Validée | Julien. Barrettes femelles : PO-02 |
